@@ -87,6 +87,7 @@ module Guard
       end
 
       def spring_command
+        return options[:spring] if options[:spring].is_a? String
         if Gem.loaded_specs["rails"] && Gem.loaded_specs["rails"].version < Gem::Version.create('4.0')
           'spring testunit'
         else
